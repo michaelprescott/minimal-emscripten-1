@@ -6,15 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf ./build/*.*",
-    "build:main:html": "mkdir -p ./build && cp ./src/main.html ./build/main.html",
-    "build:main": "emcc src/main.c -o build/main.js -s WASM=1 -s EXPORTED_FUNCTIONS='[\"_echo\", \"_main\"]' -s EXPORTED_RUNTIME_METHODS='[\"cwrap\", \"getValue\", \"setValue\"]'",
     "build:index:html": "mkdir -p ./build && cp ./src/index.html ./build/index.html",
+    "build:index": "emcc src/index.cpp -o build/index.js -s EXPORTED_FUNCTIONS=_echo -s EXPORTED_RUNTIME_METHODS=ccall,cwrap",
     "build:favicon": "mkdir -p ./build && cp ./src/favicon.ico ./build/favicon.ico",
-    "build:index": "tsc ./src/index.ts --outDir ./build --declaration true --declarationDir ./build",
-    "build:src": "tsc --project ./tsconfig.json",
-    "build:emscripten:app-1": "emcc src/app-1.c -o build/app-1.html",
-    "build:emscripten:app-2": "emcc src/app-2.cpp -o build/app-2.html",
-    "build": "npm run build:favicon && npm run build:index:html && npm run build:src && npm run build:emscripten:app-1 && npm run build:emscripten:app-2 && npm run build:main:html && npm run build:main",
+    "build": "npm run build:favicon && npm run build:index:html && npm run build:index",
     "start": "npm run build && http-server ./build -p 8080 -c-1 -o"
   },
   "repository": {

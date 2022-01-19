@@ -108,9 +108,6 @@ curl -o .gitignore https://www.toptal.com/developers/gitignore/api/osx,node,wind
 ## emscripten notes
 rm -rf build/*.*
 mkdir build
-emcc src/app.c -o build/app.js
-node build/app.js
-
-rm -rf build/*.*
-emcc src/app.c -o build/app.html
+emcc tests/index.cpp -o build/index.js -s EXPORTED_FUNCTIONS=_echo -s EXPORTED_RUNTIME_METHODS=ccall,cwrap
+## https://emscripten.org/docs/getting_started/FAQ.html
 ## ============================================================================

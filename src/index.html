@@ -1,11 +1,27 @@
 <html>
-	<head>
-		<title>Index</title>
-		<script src="./index.js"></script>
-	</head>
+  <head>
+    <title>Index</title>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <meta name="author" content="Michael Prescott" />
+    <meta name="description" content="Minimalistic emscripten - 1 project" />
+  </head>
 
-	<body>
-		<h1>minimal-node-typescript-1</h1>
-		<h2>Index</h2>
-	</body>
+  <body>
+    <h1>minimal-node-typescript-1</h1>
+    <h2>Index</h2>
+
+    <script type="text/javascript">
+      var Module = {
+        onRuntimeInitialized: function () {
+          console.log("onRuntimeInitialized()");
+          var js_wrapped_echo = Module.cwrap('echo', 'string', ['string']);
+          console.log(js_wrapped_echo("Hello, World!"));
+        },
+      };
+    </script>
+
+    <script src="main.js"></script>
+  </body>
 </html>

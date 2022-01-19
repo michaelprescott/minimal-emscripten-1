@@ -24,7 +24,6 @@ Getting Started
     * `cd emsdk`
     * `./emsdk install latest`
     * `./emsdk activate latest`
-
 ```
 Resolving SDK alias 'latest' to '3.1.1'
 Resolving SDK version '3.1.1' to 'sdk-releases-upstream-5ee64de9809592480da01372880ea11debd6c740-64bit'
@@ -49,6 +48,8 @@ Next steps:
     * echo 'source "/Users/yourusername/Projects/community/emsdk/emsdk_env.sh"' >> $HOME/.zprofile
 
     TODO: Untested, but consider adding the paths to your ~/.zshrc file instead of ~/.zprofile.  Research the difference, side-effects, and ease of maintainability.
+5. `npm run start`
+
 Configure Environment
 =====================
 
@@ -74,3 +75,4 @@ REFERENCES
 https://emscripten.org/docs/getting_started/downloads.html
 https://emscripten.org/docs/getting_started/Tutorial.html#tutorial
 https://emscripten.org/docs/compiling/Deploying-Pages.html
+https://emscripten.org/docs/porting/connecting_cpp_and_javascript/Interacting-with-code.html
